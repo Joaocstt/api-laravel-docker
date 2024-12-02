@@ -66,7 +66,7 @@ Você pode optar por usar o driver `log` ou o serviço do Mailtrap para testar o
 
 - No arquivo `.env`, configure o envio de e-mail para `log`:
    ```env
-   MAIL_MAILER=log```
+   MAIL_MAILER=log
 
 caso queira utilizar o mailtrap, informe as credenciais SMTP obtidas pelo site.
 
