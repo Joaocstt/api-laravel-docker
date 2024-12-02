@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    image: antonioanerao/laravel
+    container_name: laravel-app
+    ports:
+      - "8080:80"  #  Laravel (backend)
+      - "5173:5173"  #  Vite (frontend)
+    volumes:
+      - ./laravel/:/laravel
+    networks:
+      - laravel-network
+
+networks:
+  laravel-network:
+    driver: bridge
