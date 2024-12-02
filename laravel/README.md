@@ -64,15 +64,17 @@ Você pode optar por usar o driver `log` ou o serviço do Mailtrap para testar o
 
 ### Usando o driver `log`:
 
+
 - No arquivo `.env`, configure o envio de e-mail para `log`:
    ```env
    MAIL_MAILER=log
 
-caso queira utilizar o mailtrap, informe as credenciais SMTP obtidas pelo site.
 
 2. Todos os e-mails enviados pela aplicação serão registrados no arquivo de log localizado em:
 storage/logs/laravel.log
 
+
+caso queira utilizar o mailtrap, informe as credenciais SMTP obtidas pelo site.
 
 
 Usando o Mailtrap:
