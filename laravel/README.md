@@ -65,8 +65,9 @@ Você pode optar por usar o driver `log` ou o serviço do Mailtrap para o envio 
 ### Usando o driver `log`:
 
 
-
 - No arquivo `.env`, configure o envio de e-mail para `log`:
+
+
    ```env
    MAIL_MAILER=log
 
