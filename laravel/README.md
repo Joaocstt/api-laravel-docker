@@ -60,7 +60,7 @@ Após isso, você pode rodar o comando: `` php artisan migrate --env=testing ``
 **9** - Configuração de envio de Email
 
 
-Você pode optar por usar o driver `log` ou o serviço do Mailtrap para testar o envio de e-mails.
+Você pode optar por usar o driver `log` ou o serviço do Mailtrap para o envio de e-mails.
 
 ### Usando o driver `log`:
 
@@ -70,38 +70,15 @@ Você pode optar por usar o driver `log` ou o serviço do Mailtrap para testar o
    MAIL_MAILER=log
 
 
-2. Todos os e-mails enviados pela aplicação serão registrados no arquivo de log localizado em:
+Todos os e-mails enviados pela aplicação serão registrados no arquivo de log localizado em:
 storage/logs/laravel.log
 
 
 caso queira utilizar o mailtrap, informe as credenciais SMTP obtidas pelo site.
 
 
-Usando o Mailtrap:
 
-1. Crie uma conta no Mailtrap.
-
-
-2. Obtenha as credenciais do SMTP fornecidas pelo Mailtrap.
-
-
-3. Configure o arquivo .env com as credenciais:
-
-MAIL_MAILER=smtp
-MAIL_HOST=smtp.mailtrap.io
-MAIL_PORT=2525
-MAIL_USERNAME=seu_username_mailtrap
-MAIL_PASSWORD=sua_senha_mailtrap
-MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS=noreply@seuprojeto.com
-MAIL_FROM_NAME="${APP_NAME}"
-
-
-
-
-
-
-**9** - Saia do container e, acesse a raiz onde o arquivo docker-compose.yml está localizado, ajuste as permissões da pasta do projeto Laravel.
+**10** - Saia do container e, acesse a raiz onde o arquivo docker-compose.yml está localizado, ajuste as permissões da pasta do projeto Laravel.
 
 ```
 # sudo chown $USER:www-data -R laravel
@@ -109,7 +86,7 @@ MAIL_FROM_NAME="${APP_NAME}"
 # sudo chmod -R ug+rwx laravel/storage laravel/bootstrap/cache
 # sudo chmod -R 777 laravel/database/database.sqlite 
 ```
-**10** - Rodar a aplicação
+**11** - Rodar a aplicação
 
 - O servidor backend do Laravel estará disponível na porta 8080, e o servidor frontend do Vite estará disponível na porta 5173
 
