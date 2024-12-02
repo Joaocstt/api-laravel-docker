@@ -12,7 +12,7 @@ Antes de rodar o projeto, você precisará ter o Docker instalado na sua máquin
 
 **2** - Acesse o pasta laravel e clone .env.example do projeto: `` cp .env.example .env ``
 
-**3** - Construir os containers: `` docker-compose up -d ``
+**3** - Construir os containers: `` docker compose up -d ``
 
 **4** - Acesse o container do Laravel para instalar as dependências do Composer e Instalar as dependências do NPM (Vite):
 
