@@ -69,7 +69,6 @@ Você pode optar por usar o driver `log` ou o serviço do Mailtrap para o envio 
    ```env
    MAIL_MAILER=log
 
-
 Todos os e-mails enviados pela aplicação serão registrados no arquivo de log localizado em:
 storage/logs/laravel.log
 
