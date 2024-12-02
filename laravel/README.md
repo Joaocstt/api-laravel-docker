@@ -57,6 +57,48 @@ JWT_SECRET=sua_key_gerada_jwt
 ```
 Após isso, você pode rodar o comando: `` php artisan migrate --env=testing ``
 
+**9** - Configuração de envio de Email
+
+
+Você pode optar por usar o driver `log` ou o serviço do Mailtrap para testar o envio de e-mails.
+
+### Usando o driver `log`:
+
+- No arquivo `.env`, configure o envio de e-mail para `log`:
+   ```env
+   MAIL_MAILER=log ```
+
+caso queira utilizar o mailtrap, informe as credenciais SMTP obtidas pelo site.
+
+2. Todos os e-mails enviados pela aplicação serão registrados no arquivo de log localizado em:
+storage/logs/laravel.log
+
+
+
+Usando o Mailtrap:
+
+1. Crie uma conta no Mailtrap.
+
+
+2. Obtenha as credenciais do SMTP fornecidas pelo Mailtrap.
+
+
+3. Configure o arquivo .env com as credenciais:
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=seu_username_mailtrap
+MAIL_PASSWORD=sua_senha_mailtrap
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=noreply@seuprojeto.com
+MAIL_FROM_NAME="${APP_NAME}"
+
+
+
+
+
+
 **9** - Saia do container e, acesse a raiz onde o arquivo docker-compose.yml está localizado, ajuste as permissões da pasta do projeto Laravel.
 
 ```
