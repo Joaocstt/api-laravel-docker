@@ -8,7 +8,7 @@ Antes de rodar o projeto, você precisará ter o Docker instalado na sua máquin
 
 ## Passos para rodar o projeto
 
-**1** - Clone o repositório: git clone https://github.com/seu-usuario/seu-repositorio.git
+**1** - Clone o repositório: git clone https://github.com/Joaocstt/api-test.git
 
 **2** - Acesse o pasta laravel e clone .env.example do projeto: `` cp .env.example .env ``
 
