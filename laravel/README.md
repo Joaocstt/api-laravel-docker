@@ -1,98 +1,66 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-# Instruções para rodar o projeto com Docker
+## About Laravel
 
-## Pré-requisitos 
-Antes de rodar o projeto, você precisará ter o Docker instalado na sua máquina.
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-## Passos para rodar o projeto
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-**1** - Clone o repositório: git clone https://github.com/seu-usuario/seu-repositorio.git
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-**2** - Acesse o pasta laravel e clone .env.example do projeto: `` cp .env.example .env ``
+## Learning Laravel
 
-**3** - Construir os containers: `` docker-compose up -d --build ``
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-**4** - Acesse o container do Laravel para instalar as dependências do Composer e Instalar as dependências do NPM (Vite):
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-- `` docker exec -it laravel-app /bin/bash ``
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
+## Laravel Sponsors
 
-- `` composer install ``
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
+### Premium Partners
 
-- `` npm install ``
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[WebReinvent](https://webreinvent.com/)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Jump24](https://jump24.co.uk)**
+- **[Redberry](https://redberry.international/laravel/)**
+- **[Active Logic](https://activelogic.com)**
+- **[byte5](https://byte5.de)**
+- **[OP.GG](https://op.gg)**
 
-**5** - Ainda dentro do container do Laravel, gere a chave da aplicação com o seguinte comando:
+## Contributing
 
-- `` php artisan key:generate ``
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-**6** - Configure o banco de dados: 
+## Code of Conduct
 
-`` php artisan migrate ``
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-- Caso não tenha criado o database.sqlite, confirme com "yes".
+## Security Vulnerabilities
 
-**7** - Configure o JWT
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-Para gerar a chave secreta do JWT, rode o comando abaixo:
+## License
 
-`` php artisan jwt:secret ``
-
-- Isso atualizará seu arquivo .env para algo como **JWT_SECRET=key**
-
-**8** Configure o ambiente de teste
-
-`` cp .env.testing.example .env.testing ``
-
-Dentro do .env.testing, coloque:
-
-```
-APP_ENV=testing
-DB_CONNECTION=sqlite
-DB_DATABASE=:memory:
-
-JWT_SECRET=sua_key_gerada_jwt
-```
-Após isso, você pode rodar o comando: `` php artisan migrate --env=testing ``
-
-**9** - Configuração de envio de Email
-
-
-Você pode optar por usar o driver `log` ou o serviço do Mailtrap para o envio de e-mails.
-
-### Usando o driver `log`:
-
-
-- No arquivo `.env`, configure o envio de e-mail para `log`:
-
-
-   ```env
-   MAIL_MAILER=log
-
-Todos os e-mails enviados pela aplicação serão registrados no arquivo de log localizado em:
-storage/logs/laravel.log
-
-
-caso queira utilizar o mailtrap, informe as credenciais SMTP obtidas pelo site.
-
-
-
-**10** - Saia do container e, acesse a raiz onde o arquivo docker-compose.yml está localizado, ajuste as permissões da pasta do projeto Laravel.
-
-```
-# sudo chown $USER:www-data -R laravel
-# sudo chgrp -R www-data laravel/storage laravel/bootstrap/cache
-# sudo chmod -R ug+rwx laravel/storage laravel/bootstrap/cache
-# sudo chmod -R 777 laravel/database/database.sqlite 
-```
-**11** - Rodar a aplicação
-
-- O servidor backend do Laravel estará disponível na porta 8080, e o servidor frontend do Vite estará disponível na porta 5173
-
-
-- `` npm run dev ``
-
-
-- Após acessar a página inicial da aplicação, estará listado as rotas disponíveis na API.
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

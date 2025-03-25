@@ -11,7 +11,6 @@ services:
       - "traefik.docker.network=proxy"
       - "traefik.http.routers.mentorship.rule=Host(`mentorship.sigep.docker.localhost`)"
       - "traefik.http.routers.mentorship.entrypoints=web"
-
 networks:
   proxy:
     external: true
