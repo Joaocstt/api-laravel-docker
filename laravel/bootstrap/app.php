@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\FormatApiResponse;
 use App\Http\Middleware\JwtMiddlewareToken;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Application;
@@ -14,6 +15,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->alias([
+            'format.response' => FormatApiResponse::class,
+        ]);
+
+        $middleware->appendToGroup('api', [
+            FormatApiResponse::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->render(function (AuthenticationException $e, $request) {

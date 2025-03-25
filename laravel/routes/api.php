@@ -1,8 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\User\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function (Request $request) {
-   return response()->json(['message' => 'Hello World, students!']);
+
+Route::get('login', [AuthController::class, 'login']);
+
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::post('me', [AuthController::class, 'me']);
 });
